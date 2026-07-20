@@ -1,0 +1,11 @@
+name: example_strategy
+version: 1.0.0
+active: false
+description: Example strategy manifest for phase 0
+rules:
+  minimum_candles: 500
+  timeframes:
+    - D1
+    - H4
+    - H1
+    - M15
