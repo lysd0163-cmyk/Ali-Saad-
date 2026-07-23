@@ -8,6 +8,12 @@ __pycache__/
 venv/
 ENV/
 
+# Node / Next.js
+node_modules
+.next
+out
+.env.local
+
 # Packaging
 build/
 dist/
@@ -23,3 +29,6 @@ storage/charts/
 storage/ohlc/
 storage/reports/
 storage/cache/
+
+# OS
+.DS_Store
