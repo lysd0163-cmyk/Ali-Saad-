@@ -1,25 +1,44 @@
-# Ali-Saad-
+# Forex Chart Collector
 
-Platform foundation for the institutional trading system.
+واجهة ويب بسيطة لجلب أحدث بيانات OHLC من Twelve Data لأربعة فريمات فقط: D1, H4, H1, M15، مع عرض الشارتات وتصديرها بصيغة PNG و JSON.
 
-## Phase 0 — System Architecture
+## المزايا
+- Symbol واحد لأي زوج فوركس أو XAUUSD
+- عدد شموع قابل للتعديل
+- صور شارت واضحة وعالية الدقة
+- تنزيل منفصل أو مجمع للصور والبيانات
+- جاهز للنشر على Vercel أو أي استضافة Next.js
 
-This repository starts with the base structure required for:
-- project organization
-- configuration management
-- logging
-- plugin loading
-- strategy management
+## التشغيل المحلي
+1. ثبّت Node.js.
+2. انسخ `.env.local.example` إلى `.env.local` وضع مفتاح Twelve Data.
+3. نفّذ:
 
-## Layout
+```bash
+npm install
+npm run dev
+```
 
-- `src/ali_saad/core/` — core services
-- `src/ali_saad/modules/` — domain modules
-- `src/ali_saad/plugins/` — plugin contracts and loaders
-- `config/` — runtime configuration
-- `storage/` — charts, OHLC, logs, reports, cache
-- `tests/` — validation and smoke tests
+4. افتح:
 
-## Next step
+```text
+http://localhost:3000
+```
 
-Phase 0.2 will expand the Strategy Manager into a complete strategy registry, parser, and validator.
+## إعداد المفتاح
+أنشئ ملف `.env.local`:
+
+```bash
+TWELVE_DATA_API_KEY=your_api_key_here
+```
+
+## كيف يعمل
+- تكتب الزوج مثل `EURUSD` أو `XAUUSD`.
+- تحدد عدد الشموع.
+- يطلب التطبيق OHLC للفريمات الأربع.
+- يرسم الشارتات داخل الصفحة.
+- يتيح تنزيل JSON و PNG مجمعين.
+
+## ملاحظات
+- الواجهة تحول `EURUSD` إلى `EUR/USD` تلقائيًا عند الإرسال.
+- الدعم مخصص للأزواج الشائعة والذهب حسب تغطية المزود.
